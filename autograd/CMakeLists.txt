@@ -1,0 +1,16 @@
+set(TARGET_NAME autograd)
+
+file(GLOB_RECURSE SRC CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
+file(GLOB_RECURSE INC CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.h
+)
+
+add_library(${TARGET_NAME} STATIC
+    ${SRC}
+    ${INC}
+)
+
+target_include_directories(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
